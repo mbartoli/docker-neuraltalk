@@ -29,5 +29,9 @@ WORKDIR /home/neuraltalk/cv
 RUN wget http://cs.stanford.edu/people/karpathy/neuraltalk/coco_cnn_lstm_v2.zip
 RUN unzip coco_cnn_lstm_v2.zip
 
+# fetch coco data
+WORKDIR /home/neuraltalk/data
+RUN wget http://cs.stanford.edu/people/karpathy/deepimagesent/coco.zip
+RUN unzip coco.zip
 
 
