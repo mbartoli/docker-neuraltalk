@@ -1,5 +1,5 @@
 # Version 0.0.1
-FROM ubuntu:14.04
+FROM ubuntu:12.04
 MAINTAINER Mike Bartoli "michael.bartoli@pomona.edu"
 RUN apt-get update
 RUN apt-get -y install \
@@ -18,3 +18,16 @@ RUN apt-get -y install \
 	g++
 RUN apt-get install -f
 RUN pip install numpy scipy
+
+# fetch neuraltalk repo
+WORKDIR /home
+RUN git clone https://github.com/karpathy/neuraltalk
+WORKDIR /home/neuraltalk
+
+# fetch model checkpoint
+WORKDIR /home/neuraltalk/cv
+RUN wget http://cs.stanford.edu/people/karpathy/neuraltalk/coco_cnn_lstm_v2.zip
+RUN unzip coco_cnn_lstm_v2.zip
+
+
+
